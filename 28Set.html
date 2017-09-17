@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>28-Set</title>
+    <script>
+        let dersert = new Set('我很饿');
+        console.log(dersert);
+        dersert.add("啊");
+        console.log(dersert);
+        console.log(dersert.size);
+        console.log(dersert.has('我'));
+        dersert.forEach(ele=>{
+            console.log(ele)
+        })
+        dersert.clear();
+        console.log(dersert)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

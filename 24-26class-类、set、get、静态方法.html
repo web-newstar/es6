@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>24-class类/set/get/静态方法</title>
+    <script>
+        // 定义一个类,使用class关键字
+        class Chef {
+            constructor(
+                food
+            ) {
+                console.log(this);
+                this.food = food;
+                this.dish = [];
+            }
+            static cookies(value){
+                console.log(value)
+            }
+            cook() {
+                console.log(this.food)
+            }
+            get menu() {
+                return this.dish;
+            }
+            set menu(value) {
+                this.dish.push(value)
+            }
+        }
+        let lt = new Chef("鸡蛋");
+        lt.cook();
+        lt.menu = "火腿";
+        lt.menu = "鱼豆腐";
+        console.log(lt.menu)
+
+        //  设置静态方法
+            // 不需要设置值就可以使用的方法
+            Chef.cookies("坏掉")
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

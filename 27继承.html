@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>27继承</title>
+    <script>
+        class Food {
+            constructor(name, birthday) {
+                this.name = name;
+                this.birthday = birthday;
+            }
+            detail() {
+                return `${this.name}的生日是${this.birthday}`
+            }
+        }
+        class Chef extends Food {
+            constructor(name,birthday){
+                super(name,birthday)
+            }
+        }
+        let lt=new Chef("lt","1992-02");
+        console.log(lt.detail())
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

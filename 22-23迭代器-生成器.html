@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22迭代器</title>
+    <script>
+        "use strict"
+        function chef(foods) {
+            let i = 0;
+            return {
+                next() {
+                    console.log(i);
+                    let done = (i >= foods.length);
+                    let value = !done ? foods[i++] : undefined
+                    return {
+                        value: value,
+                        done: done
+                    }
+                }
+            }
+        }
+        let lt = chef(["鸡蛋", "牛奶"])
+        console.log(lt);
+        console.log(lt.next());
+        console.log(lt.next());
+        console.log(lt.next());
+
+        // 手动创建一个迭代器比较麻烦，我们可以使用generators生成迭代器，generators叫做生成器
+        function* foods() {
+            yield "牛奶";
+            yield "咖啡";
+        }
+        // 也可以使用函数表达式 let foods=function(){}
+        let chooseFoods = foods();
+        console.log(chooseFoods);
+        console.log(chooseFoods.next());
+        console.log(chooseFoods.next());
+        console.log(chooseFoods.next());
+
+
+        // 将上述迭代七稍微改造一下
+        function* foodsTwo(foods=["可乐","雪碧"]) {
+            for (var i = 0; i < foods.length; i++) {
+                yield foods[i]
+            }
+        }
+        let chooseFoodsTwo=foodsTwo(["美年达","红茶"]);
+        console.log(chooseFoodsTwo.next()); // {value:"美年达",done:false}
+        console.log(chooseFoodsTwo.next());
+        console.log(chooseFoodsTwo.next());
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
